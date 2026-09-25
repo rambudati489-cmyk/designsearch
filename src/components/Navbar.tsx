@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../Common.css";
 
 function SearchIcon() {
@@ -38,6 +38,8 @@ function UserIcon() {
 }
 
 function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <header className="navbar">
       <div className="navbar-container">
@@ -97,6 +99,7 @@ function Navbar() {
             type="button"
             className="navbar-icon-button"
             aria-label="User profile"
+            onClick={() => navigate("/userManagement")}
           >
             <UserIcon />
           </button>
