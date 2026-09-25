@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import SearchEngine from "./pages/searchEngine";
+import UserManagement from "./pages/userManagement";
 import "./Common.css";
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
 
         {/* Search Engine: /searchEngine */}
         <Route path="searchEngine" element={<SearchEngine />} />
+
+        {/* User Management: /userManagement */}
+        <Route path="userManagement" element={<UserManagement />} />
       </Route>
     </Routes>
   );
