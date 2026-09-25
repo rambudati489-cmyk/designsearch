@@ -1,0 +1,3262 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+}
+
+/* body {
+  background: #050505;
+} */
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  width: 100vw;
+  height: 8vh;
+  background: #090d15;
+  border-bottom: 1px solid #252b36;
+  color: #ffffff;
+}
+
+.navbar-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   BRAND
+--------------------------------------------------------- */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  text-decoration: none;
+  color: #ffffff;
+
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 35px;
+  height: 35px;
+
+  border: 1px solid #ffffff;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  line-height: 1;
+
+  box-sizing: border-box;
+}
+
+.logo-new {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.logo-era {
+  font-size: 7px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 24px;
+
+  background: #5b616c;
+
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.brand-name {
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   NAVIGATION
+--------------------------------------------------------- */
+
+.navbar-navigation {
+  display: flex;
+  align-items: center;
+
+  gap: 26px;
+
+  margin-left: auto;
+  margin-right: 38px;
+}
+
+.nav-link {
+  position: relative;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  opacity: 0.95;
+
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.nav-link.active {
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   ACTIONS
+--------------------------------------------------------- */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+
+  flex-shrink: 0;
+}
+
+.navbar-icon-button {
+  width: 24px;
+  height: 30px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.navbar-icon-button:hover {
+  opacity: 0.7;
+}
+
+/* ---------------------------------------------------------
+   API STATUS
+--------------------------------------------------------- */
+
+.api-status {
+  height: 25px;
+
+  padding: 0 11px;
+
+  border: 1px solid #454b56;
+
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 9px;
+
+  color: #ffffff;
+
+  white-space: nowrap;
+
+  background: #161b24;
+}
+
+.api-status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #5fc77a;
+
+  box-shadow: 0 0 5px rgba(95, 199, 122, 0.5);
+}
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
+.home-page {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #050505;
+}
+
+/* =========================================================
+   HOME CONTENT
+========================================================= */
+
+.home-content {
+  position: relative;
+
+  width: 100%;
+
+  /*
+     Allows the hero to determine its own height.
+     Prevents footer overlap.
+    */
+  flex: 1 0 auto;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: visible;
+}
+
+/* =========================================================
+   HERO BACKGROUND + CONTENT WRAPPER
+========================================================= */
+
+.hero-overlay {
+  position: relative;
+
+  /* width: 100%; */
+
+  /*
+     Important:
+     Do NOT use position:absolute here.
+    */
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.74) 40%,
+      rgba(0, 0, 0, 0.52) 100%
+    ),
+    url("./assets/backgroundImage.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  /*
+     No fixed height.
+     Content determines the height.
+    */
+  padding: 2.8rem 2.5rem 2.5rem;
+  display: grid;
+  /*
+     Left side gets available space.
+     Right side stays controlled.
+    */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 40px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.content1 {
+  height: 89vh;
+}
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  align-self: center;
+  margin-left: 3%;
+}
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.eyebrow {
+  margin-bottom: -10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+  color: #d6d6d6;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.eyebrow span {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #ff3b30;
+}
+
+/* =========================================================
+   HERO HEADER
+========================================================= */
+
+.hero-header {
+  position: relative;
+
+  display: inline-block;
+}
+.hero-header h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Sora", sans-serif;
+  font-size: clamp(70px, 10vw, 110px);
+  font-style: normal;
+  font-weight: 800;
+
+  line-height: 0.85;
+  letter-spacing: 5px;
+}
+
+/* =========================================================
+   DESIGN COUNT
+========================================================= */
+
+.design-count {
+  position: absolute;
+  right: -240px;
+  bottom: 1rem;
+  width: max-content;
+  padding: 0.7rem 0.9rem;
+  background: #ff3b30;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   SEARCH SECTION
+========================================================= */
+
+.search-section {
+  width: 100%;
+
+  max-width: 530px;
+
+  margin-top: 30px;
+}
+.search-engine {
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description {
+  width: 100%;
+
+  max-width: 410px;
+
+  margin: 0 0 25px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   SEARCH BAR
+========================================================= */
+
+.search-container {
+  display: flex;
+  width: 46vw;
+  height: 60px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* Search icon */
+
+/* .search-icon {
+  width: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #aaa;
+
+  font-size: 14px;
+} */
+
+/* Input wrapper */
+
+.search-input-wrapper {
+  position: relative;
+
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+/* Input */
+
+.search-input-wrapper input {
+  width: 100%;
+  height: 100%;
+  padding: 0 70px 0 3px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.custom-placeholder {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+
+  color: #888;
+  font-size: 14px;
+  line-height: 20px;
+
+  pointer-events: none;
+}
+
+.search-input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* AI SEARCH */
+
+.ai-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: "Sora", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Search button */
+
+.search-button {
+  width: 95px;
+  flex-shrink: 0;
+  border: none;
+  background: #ffffff;
+  color: #111111;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: #f1f1f1;
+}
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #222222;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  width: 11vw;
+  font-weight: bold;
+  height: 5vh;
+}
+
+.filter.active {
+  background: #111111;
+  color: #ffffff;
+}
+
+.filter small {
+  color: #6b7280;
+  font-size: 8px;
+}
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.checkbox {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid #bbbbbb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8px;
+  flex-shrink: 0;
+}
+
+.checkbox.checked {
+  background: #ffffff;
+  color: #111111;
+  border-color: #ffffff;
+}
+
+/* =========================================================
+   RIGHT DESIGN GRID
+========================================================= */
+
+.design-grid {
+  /* width: min(440px, 100%); */
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  /* Equal top and bottom rows */
+  grid-template-rows: 200px 135px 200px;
+  /* Reduce horizontal/vertical spaces */
+  column-gap: 4px;
+  row-gap: 8px;
+  margin-left: auto;
+  margin-right: 0;
+  align-items: stretch;
+}
+
+/* =========================================================
+   TOP ROW
+========================================================= */
+
+.design-1 {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+
+.design-2 {
+  grid-column: 4 / span 3;
+  grid-row: 1;
+}
+
+/* =========================================================
+   CENTER ROW
+========================================================= */
+
+.design-3 {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+}
+
+.design-4 {
+  grid-column: 3 / span 2;
+  grid-row: 2;
+}
+
+.design-5 {
+  grid-column: 5 / span 2;
+  grid-row: 2;
+}
+
+/* =========================================================
+   BOTTOM ROW
+========================================================= */
+
+.design-6 {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+}
+
+.design-7 {
+  grid-column: 4 / span 3;
+  grid-row: 3;
+}
+
+/* =========================================================
+   DESIGN CARD
+========================================================= */
+
+.design-card {
+  /* width: 90%;
+    height: 90%; */
+
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   DESIGN IMAGE
+========================================================= */
+
+.design-card img {
+  /* width: 90%;
+    height: 90%; */
+  height: 100%;
+  width: 89%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  object-fit: contain;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.home-footer {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+  padding: 15px 20px;
+  text-align: center;
+  background: #050505;
+  color: #ffffff;
+  border-top: 1px solid #252b36;
+  box-sizing: border-box;
+}
+
+.home-footer p {
+  margin: 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .hero-container {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+    gap: 30px;
+    padding: 35px 30px;
+  }
+
+  .design-grid {
+    width: min(400px, 100%);
+  }
+
+  .hero-header h1 {
+    font-size: clamp(65px, 7vw, 90px);
+  }
+
+  .design-count {
+    right: -150px;
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   TABLET / STACKED
+========================================================= */
+
+@media (max-width: 900px) {
+  .hero-overlay {
+    overflow: visible;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-height: auto;
+    padding: 40px 25px 50px;
+    gap: 45px;
+    align-items: start;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .search-section {
+    max-width: 530px;
+  }
+
+  .design-grid {
+    width: min(440px, 100%);
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 58px;
+  }
+
+  .navbar-container {
+    padding: 0 15px;
+  }
+
+  .navbar-navigation {
+    display: none;
+  }
+
+  .navbar-actions {
+    margin-left: auto;
+  }
+
+  .api-status {
+    display: none;
+  }
+
+  /* Hero */
+
+  /* .hero-container {
+    padding: 30px 18px 40px;
+    gap: 35px;
+  } */
+
+  /* Heading */
+
+  .hero-header h1 {
+    font-size: clamp(58px, 17vw, 78px);
+    line-height: 0.82;
+    letter-spacing: 2px;
+  }
+
+  /* Count */
+
+  .design-count {
+    position: static;
+    display: inline-block;
+    margin-top: 18px;
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  /* Description */
+
+  .description {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  /* Search */
+
+  .search-container {
+    height: 44px;
+  }
+
+  .search-icon {
+    width: 35px;
+  }
+
+  .search-input-wrapper input {
+    font-size: 10px;
+    padding-right: 55px;
+  }
+
+  .search-button {
+    width: 75px;
+    font-size: 9px;
+  }
+
+  /* Filters */
+
+  .filters {
+    gap: 5px;
+  }
+
+  .filter {
+    padding: 5px 9px;
+    font-size: 9px;
+  }
+
+  /* Design grid */
+
+  .design-grid {
+    width: 100%;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    /*
+         Keep the 2 → 3 → 2 layout.
+         DO NOT change this to repeat(2, 1fr).
+        */
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 2px;
+    row-gap: 0;
+  }
+
+  .design-card img {
+    width: 92%;
+    height: 92%;
+  }
+
+  /* Footer */
+
+  .home-footer {
+    padding: 12px 15px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .hero-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-header h1 {
+    font-size: 55px;
+    letter-spacing: 1px;
+  }
+
+  .search-button {
+    width: 68px;
+    font-size: 8px;
+  }
+
+  .filter {
+    padding: 5px 7px;
+    font-size: 8px;
+  }
+
+  .design-grid {
+    width: 100%;
+  }
+}
+
+/* Content Section 2 */
+
+/* ========================================
+   HOW IT WORKS
+======================================== */
+
+.how-it-works {
+  width: 100%;
+
+  padding: 55px 32px 40px;
+
+  background: #050505;
+
+  color: #ffffff;
+}
+
+.how-it-works-container {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.section-header {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* .eyebrow {
+  margin-bottom: 8px;
+
+  color: #9aa9c1;
+
+  font-family: "Sora", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+
+  line-height: 1.2;
+  letter-spacing: 1px;
+} */
+
+.section-header h2 {
+  margin: 0 0 8px;
+  color: #f5f5f5;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(32px, 3.2vw, 42px);
+  font-weight: 700;
+
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.section-header p {
+  max-width: 1250px;
+  margin: 0;
+  color: #98a8c0;
+  font-family: "Sora", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ========================================
+   CARDS
+======================================== */
+
+.workflow-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 23px;
+
+  width: 100%;
+}
+
+.workflow-card {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  padding: 32px 36px;
+  background: #10182b;
+  border: 1px solid #253653;
+  border-radius: 19px;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   ICON
+======================================== */
+
+.workflow-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24px;
+  background: rgba(5, 12, 25, 0.18);
+  border-radius: 10px;
+}
+
+.workflow-icon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.workflow-content {
+  flex: 1;
+}
+
+.workflow-content h3 {
+  margin: 0 0 8px;
+  color: #f5f5f5;
+  font-family: "Sora", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.workflow-content p {
+  margin: 0;
+  color: #9baac1;
+  font-family: "Sora", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* ========================================
+   POPULAR DESIGNS
+======================================== */
+
+.popular-designs {
+  margin-top: 56px;
+  color: #9aa9c1;
+  font-family: "Sora", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+  .how-it-works {
+    padding: 45px 25px 35px;
+  }
+
+  .workflow-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .workflow-card {
+    min-height: 180px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .how-it-works {
+    padding: 40px 18px 30px;
+  }
+
+  .section-header h2 {
+    font-size: 30px;
+
+    letter-spacing: -1px;
+  }
+
+  .section-header p {
+    font-size: 14px;
+  }
+
+  .workflow-card {
+    min-height: auto;
+
+    padding: 25px 22px;
+
+    align-items: flex-start;
+  }
+
+  .workflow-icon {
+    width: 45px;
+    height: 45px;
+
+    flex-basis: 45px;
+
+    margin-right: 16px;
+  }
+
+  .workflow-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .workflow-content h3 {
+    font-size: 17px;
+  }
+
+  .workflow-content p {
+    font-size: 13px;
+  }
+}
+
+/* Content section 3 */
+
+/* ========================================
+   POPULAR DESIGNS SECTION
+======================================== */
+
+.popular-designs-section {
+  width: 100%;
+
+  padding: 40px 40px 45px;
+
+  background: #050505;
+  color: #ffffff;
+}
+
+.popular-designs-container {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.popular-designs-header {
+  margin-bottom: 25px;
+}
+
+.popular-designs-eyebrow {
+  margin-bottom: 8px;
+
+  color: #9aa9c1;
+
+  font-family: "Sora", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.popular-designs-header h2 {
+  margin: 0 0 8px;
+
+  color: #f5f5f5;
+
+  font-family: "Sora", sans-serif;
+  font-size: clamp(32px, 3.2vw, 42px);
+  font-weight: 700;
+
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.popular-designs-header p {
+  margin: 0;
+
+  color: #98a8c0;
+
+  font-family: "Sora", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1.5;
+}
+
+/* ========================================
+   CARDS GRID
+======================================== */
+
+.popular-designs-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 16px;
+}
+
+/* ========================================
+   CARD
+======================================== */
+
+.popular-design-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #10182b;
+
+  border: 1px solid #253653;
+  border-radius: 19px;
+
+  box-sizing: border-box;
+}
+
+/* ========================================
+   IMAGE
+======================================== */
+
+.popular-design-image {
+  width: 100%;
+  height: 195px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #10182b;
+}
+
+.popular-design-image img {
+  width: 180px;
+  height: 180px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.popular-design-content {
+  padding: 18px 19px 16px;
+}
+
+.popular-design-content h3 {
+  margin: 0 0 10px;
+
+  color: #f5f5f5;
+
+  font-family: "Sora", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1.25;
+}
+
+.popular-design-content p {
+  min-height: 44px;
+
+  margin: 0 0 12px;
+
+  color: #9baac1;
+
+  font-family: "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.5;
+}
+
+/* ========================================
+   META
+======================================== */
+
+.popular-design-meta {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  color: #9baac1;
+
+  font-family: "Sora", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.popular-design-meta span {
+  white-space: nowrap;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+  .popular-designs-section {
+    padding: 40px 25px;
+  }
+
+  .popular-designs-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .popular-designs-section {
+    padding: 35px 18px;
+  }
+
+  .popular-designs-header h2 {
+    font-size: 30px;
+
+    letter-spacing: -1px;
+  }
+
+  .popular-designs-header p {
+    font-size: 14px;
+  }
+
+  .popular-designs-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .popular-design-image {
+    height: 200px;
+  }
+
+  .popular-design-image img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* ========================================
+   SEARCH HEADER
+======================================== */
+
+.search-header {
+  width: 90vw;
+  /* 8px / 16 = 0.5rem | 86px / 16 = 5.375rem | 10px / 16 = 0.625rem */
+  padding: 0.5rem 5.375rem 0.625rem;
+
+  background: #ffffff;
+  /* border-bottom: 1px solid #dfe4ea; */
+  box-sizing: border-box;
+}
+
+/* ========================================
+   TOP SEARCH ROW
+======================================== */
+
+.search-top-row {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+/* ========================================
+   MAIN SEARCH BOX
+======================================== */
+
+.main-search-box {
+  position: relative;
+  flex: 1;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  background: #f7f9fb;
+  border: 2px solid #e2e8f0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.main-search-icon {
+  width: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #536579;
+}
+
+.main-search-box input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 6px 0 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #273444;
+  font-family: "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.main-search-box input::placeholder {
+  color: #344255;
+  opacity: 1;
+}
+
+/* ========================================
+   AI SEARCH BADGE
+======================================== */
+
+.ai-search-badge {
+  flex-shrink: 0;
+  margin-right: 8px;
+  padding: 3px 6px;
+  background: #e7f1f9;
+  border-radius: 2px;
+  color: #2878a8;
+  font-family: "Sora", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ========================================
+   SEARCH ICON BUTTONS
+======================================== */
+
+.search-icon-button {
+  width: 25px;
+  height: 25px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #536579;
+
+  cursor: pointer;
+}
+
+.search-icon-button:hover {
+  color: #111827;
+}
+
+/* ========================================
+   SEARCH BUTTON
+======================================== */
+
+.main-search-button {
+  width: 74px;
+  height: 33px;
+
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 4px;
+
+  background: #050505;
+
+  color: #ffffff;
+
+  font-family: "Sora", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.main-search-button:hover {
+  background: #1a1a1a;
+}
+
+/* ========================================
+   SEARCH FIELDS
+======================================== */
+
+.search-fields-row {
+  width: 50vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-top: 9px;
+}
+
+.search-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.search-field label {
+  color: #344255;
+  font-family: "Sora", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 2;
+}
+
+.search-field input {
+  width: 100%;
+  height: 35px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  border: 2px solid #dce3ea;
+  border-radius: 3px;
+  outline: none;
+  background: #f7f9fb;
+  color: #273444;
+  font-family: "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.search-field input::placeholder {
+  color: #8794a5;
+}
+
+/* ========================================
+   STATUS ROW
+======================================== */
+
+.search-status-row {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 10px;
+
+  padding-top: 9px;
+
+  border-top: 1px solid #e3e7ec;
+}
+
+/* ========================================
+   STATUS FILTERS
+======================================== */
+
+.status-filters {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.status-filter {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 20px;
+  border: 1px solid #dce3ea;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #344255;
+  font-family: "Sora", sans-serif;
+  cursor: pointer;
+}
+
+.status-filter small {
+  color: #8794a5;
+
+  font-size: 6px;
+}
+
+.status-filter.active {
+  background: #101827;
+
+  border-color: #101827;
+
+  color: #ffffff;
+}
+
+.status-filter.active small {
+  color: #d1d8e0;
+}
+
+/* ========================================
+   CHECKBOX
+======================================== */
+
+.status-checkbox {
+  width: 8px;
+  height: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #aeb9c6;
+  border-radius: 2px;
+
+  box-sizing: border-box;
+
+  font-size: 6px;
+  line-height: 1;
+}
+
+.status-checkbox.checked {
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  color: #101827;
+}
+
+/* ========================================
+   DATABASE STATUS
+======================================== */
+
+.database-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #344255;
+  font-family: "Sora", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.database-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 800px) {
+  .search-header {
+    padding: 8px 15px 10px;
+  }
+
+  .search-fields-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .search-top-row {
+    flex-wrap: wrap;
+  }
+
+  .main-search-box {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .main-search-button {
+    width: 100%;
+  }
+
+  .search-status-row {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .status-filters {
+    flex-wrap: wrap;
+  }
+
+  .database-status {
+    align-self: flex-end;
+  }
+}
+
+/* ========================================
+   RESULTS TOOLBAR
+======================================== */
+
+.results-toolbar {
+  width: 100%;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
+  box-sizing: border-box;
+
+  background: #eef2f6;
+
+  border-bottom: 1px solid #dce2e8;
+}
+
+/* ========================================
+   RESULTS COUNT
+======================================== */
+
+.results-count {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  color: #667085;
+
+  font-family: "Sora", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+.results-count strong {
+  color: #172033;
+
+  font-weight: 700;
+}
+
+.results-count strong:last-child {
+  margin-left: 2px;
+
+  color: #1f2937;
+}
+
+/* ========================================
+   RIGHT CONTROLS
+======================================== */
+
+.results-controls {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+/* ========================================
+   SORT
+======================================== */
+
+.sort-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sort-label {
+  color: #7a8492;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(0.625rem, 0.55rem + 0.3vw, 0.75rem);
+}
+
+.sort-select {
+  min-height: 2rem;
+  padding-inline: 0.25rem 1.5rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #273444;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(0.625rem, 0.55rem + 0.3vw, 0.75rem);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ========================================
+   VIEW CONTROLS
+======================================== */
+
+.view-controls {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.view-button {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  background: transparent;
+
+  color: #607086;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.view-button:hover {
+  background: #e3e8ee;
+}
+
+.view-button.active {
+  background: #ffffff;
+
+  border-color: #d6dde5;
+
+  color: #172033;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* ========================================
+   EXPORT
+======================================== */
+
+.export-button {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #b4bdc8;
+
+  font-family: "Sora", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: not-allowed;
+}
+
+.export-icon {
+  font-size: 18px;
+
+  line-height: 1;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+  .results-toolbar {
+    padding: 0 18px;
+  }
+
+  .results-controls {
+    gap: 10px;
+  }
+
+  .sort-label {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .results-toolbar {
+    height: auto;
+
+    min-height: 44px;
+
+    padding: 8px 15px;
+
+    gap: 10px;
+  }
+
+  .results-count {
+    font-size: 9px;
+  }
+
+  .sort-control {
+    display: none;
+  }
+
+  .export-button {
+    display: none;
+  }
+}
+
+/* ========================================
+   FILTER SIDEBAR
+======================================== */
+
+.filter-sidebar {
+  width: 100%;
+
+  padding: 0.75rem 0.75rem 1rem;
+
+  background: #f8fafc;
+
+  box-sizing: border-box;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.filter-sidebar-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 0.75rem;
+}
+
+.filter-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  color: #172033;
+
+  font-family: "Sora", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.filter-count {
+  min-width: 0.8rem;
+  height: 0.8rem;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 0.2rem;
+
+  border-radius: 0.25rem;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  font-size: 0.45rem;
+  font-weight: 700;
+}
+
+.clear-filters {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #667085;
+
+  font-family: "Sora", sans-serif;
+  font-size: 0.55rem;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+/* ========================================
+   SELECTED FILTERS
+======================================== */
+
+.selected-filter-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.3rem;
+
+  margin-bottom: 0.65rem;
+}
+
+.selected-filter {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.25rem;
+
+  padding: 0.2rem 0.4rem;
+
+  background: #eef2f6;
+
+  border-radius: 0.2rem;
+
+  color: #344054;
+
+  font-family: "Sora", sans-serif;
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
+.selected-filter button {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #667085;
+
+  font-size: 0.55rem;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+/* ========================================
+   FILTER GROUPS
+======================================== */
+
+.filter-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* ========================================
+   FILTER GROUP
+======================================== */
+
+.filter-group {
+  width: 16vw;
+  background: #ffffff;
+  border: 0.0625rem solid #dfe5eb;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   GROUP HEADER
+======================================== */
+
+.filter-group-header {
+  width: 100%;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.65rem;
+  border: none;
+  background: transparent;
+  color: #172033;
+  font-family: "Sora", sans-serif;
+  cursor: pointer;
+}
+
+.filter-group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.group-count {
+  min-width: 0.7rem;
+  height: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.15rem;
+  border-radius: 0.2rem;
+  background: #111827;
+  color: #ffffff;
+  font-size: 0.4rem;
+  font-weight: 700;
+}
+
+.filter-chevron {
+  color: #5f7185;
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.filter-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* ========================================
+   FILTER ITEMS
+======================================== */
+
+.filter-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0 0.65rem 0.65rem;
+}
+
+.filter-item {
+  min-height: 1.25rem;
+  display: grid;
+  grid-template-columns: 0.8rem 1fr auto;
+  align-items: center;
+  column-gap: 0.35rem;
+  cursor: pointer;
+}
+
+.filter-item input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ========================================
+   CUSTOM CHECKBOX
+======================================== */
+
+.custom-checkbox {
+  width: 0.7rem;
+  height: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 0.0625rem solid #cbd5df;
+  border-radius: 0.15rem;
+  background: #ffffff;
+  color: #ffffff;
+  font-size: 0.48rem;
+  font-weight: 700;
+}
+
+.filter-item input:checked + .custom-checkbox {
+  background: #050505;
+  border-color: #050505;
+}
+
+/* ========================================
+   LABEL
+======================================== */
+
+.filter-item-label {
+  min-width: 0;
+  overflow: hidden;
+  /* color: #5e6d7e; */
+  color: black;
+  font-family: "Sora", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========================================
+   ITEM COUNT
+======================================== */
+
+.filter-item-count {
+  color: #8090a2;
+  font-family: "Sora", sans-serif;
+  font-size: 0.48rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ========================================
+   HOVER
+======================================== */
+
+.filter-item:hover .filter-item-label {
+  color: #172033;
+}
+
+.filter-item:hover .custom-checkbox {
+  border-color: #8997a8;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 60rem) {
+  .filter-sidebar {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .filter-sidebar {
+    padding: 0.5rem;
+  }
+
+  .filter-group-header {
+    padding: 0.55rem 0.6rem;
+  }
+
+  .filter-items {
+    padding: 0 0.6rem 0.6rem;
+  }
+}
+
+.search-content {
+  display: grid;
+
+  grid-template-columns: 16rem minmax(0, 1fr);
+
+  flex: 1;
+
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+.search-sidebar {
+  width: 100%;
+  min-width: 0;
+}
+
+.search-results {
+  min-width: 0;
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.75rem 0.75rem 1.5rem;
+  height: 65vh;
+  margin-bottom: 10vh;
+
+  /* padding: 0.75rem; */
+
+  box-sizing: border-box;
+}
+
+/* design Grid Css */
+/* ========================================
+   DESIGN GRID
+======================================== */
+
+.design-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 0.7rem;
+
+  /* padding: 0.7rem; */
+
+  box-sizing: border-box;
+}
+
+/* ========================================
+   CARD
+======================================== */
+
+.design-card {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 0.0625rem solid #d7dee6;
+  border-radius: 0.35rem;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+/* ========================================
+   IMAGE AREA
+======================================== */
+
+.design-image {
+  width: 100%;
+  height: 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f3f5f7;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+/* IMPORTANT:
+   Make the actual image smaller
+*/
+
+.design-image img {
+  width: 78%;
+  height: 78%;
+
+  display: block;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  margin: auto;
+}
+
+/* ========================================
+   DETAILS
+======================================== */
+
+.design-details {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.45rem 0.55rem 0.55rem;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+}
+
+/* ========================================
+   DESIGN NUMBER
+======================================== */
+
+.design-number-row {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 0.5rem;
+
+  margin-bottom: 0.2rem;
+}
+
+.design-number {
+  min-width: 0;
+
+  color: #68778a;
+
+  font-family: "Sora", sans-serif;
+  font-size: 0.45rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.design-stitch {
+  flex-shrink: 0;
+
+  color: #68778a;
+
+  font-family: "Sora", sans-serif;
+  font-size: 0.45rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.design-description {
+  width: 100%;
+
+  margin: 0;
+
+  color: #304565;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+   STYLE
+======================================== */
+
+.design-style {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 0.2rem;
+
+  color: #68778a;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 0.48rem;
+
+  line-height: 1.3;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.design-footer {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 0.45rem;
+
+  gap: 0.4rem;
+
+  box-sizing: border-box;
+}
+
+.design-keyword {
+  min-width: 0;
+
+  color: #53677f;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 0.48rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.design-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.2rem;
+
+  flex-shrink: 0;
+
+  color: #607086;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 0.48rem;
+
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 0.3rem;
+  height: 0.3rem;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 70rem) {
+  .design-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+   SMALL SCREEN
+======================================== */
+
+@media (max-width: 50rem) {
+  .design-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0.6rem;
+
+    padding: 0.6rem;
+  }
+
+  .design-image {
+    height: 7.5rem;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 35rem) {
+  .design-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .design-image {
+    height: 9rem;
+  }
+}
+
+.design-stitch {
+  flex-shrink: 0;
+
+  color: #68778a;
+
+  font-family: "Sora", sans-serif;
+  font-size: 0.45rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+/* Custom Modal CSS */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  z-index: 9999;
+}
+
+.modal-container {
+  width: min(90%, 40rem);
+  max-height: 90vh;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 0.6rem;
+
+  box-sizing: border-box;
+}
+
+.modal-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1rem;
+
+  border-bottom: 0.0625rem solid #e5e7eb;
+}
+
+.modal-header h2 {
+  margin: 0;
+
+  font-size: 1.1rem;
+}
+
+.modal-close {
+  border: none;
+
+  background: transparent;
+
+  font-size: 1.5rem;
+
+  cursor: pointer;
+}
+
+.modal-body {
+  max-height: calc(90vh - 5rem);
+
+  overflow-y: auto;
+
+  padding: 1rem;
+
+  box-sizing: border-box;
+}
+/* ================================
+   MODAL OVERLAY
+================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  z-index: 9999;
+
+  box-sizing: border-box;
+}
+
+/* ================================
+   MODAL CONTAINER
+================================ */
+
+.modal-container {
+  width: min(96vw, 52rem);
+
+  max-height: calc(100vh - 2rem);
+
+  background: #ffffff;
+
+  border-radius: 0.7rem;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* ================================
+   MAIN CONTENT
+================================ */
+
+.design-modal-content {
+  width: 100%;
+
+  max-height: 100%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  color: #14213d;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.design-modal-header {
+  min-height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.75rem 1.25rem;
+
+  box-sizing: border-box;
+}
+
+.design-header-left {
+  display: flex;
+  align-items: center;
+
+  gap: 0.6rem;
+}
+
+.design-header-left h2 {
+  margin: 0;
+
+  font-size: 1rem;
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: #111827;
+}
+
+.design-active {
+  padding: 0.4rem 0.65rem;
+
+  border-radius: 0.3rem;
+
+  background: #dcfce7;
+
+  color: #15803d;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.design-type {
+  padding: 0.4rem 0.65rem;
+
+  border-radius: 0.3rem;
+
+  background: #eef2f6;
+
+  color: #53657a;
+
+  font-size: 0.7rem;
+}
+
+.modal-header-close {
+  width: 2rem;
+  height: 2rem;
+
+  border: none;
+
+  background: transparent;
+
+  color: #111827;
+
+  font-size: 1.5rem;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+/* ================================
+   ACTION BAR
+================================ */
+
+.design-action-bar {
+  min-height: 4.1rem;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  padding: 0.65rem 0.75rem;
+
+  background: #071a35;
+
+  box-sizing: border-box;
+}
+
+.action-button,
+.close-button {
+  /* min-height: 2.8rem; */
+
+  padding: 0.45rem 0.8rem;
+
+  border-radius: 0.3rem;
+
+  border: 1px solid #34445d;
+
+  background: #142947;
+
+  color: #ffffff;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.action-button.primary {
+  background: #087dcc;
+
+  border-color: #087dcc;
+}
+
+.action-button.outline {
+  background: transparent;
+}
+
+.jobtracker-button {
+  margin-left: auto;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.close-button {
+  background: #303d54;
+
+  border-color: #303d54;
+}
+
+/* ================================
+   MAIN MODAL AREA
+================================ */
+
+.design-modal-main {
+  display: grid;
+
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+
+  gap: 1rem;
+
+  padding: 1rem;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+/* ================================
+   LEFT SIDE
+================================ */
+
+.design-modal-left {
+  min-width: 0;
+}
+
+/* IMAGE */
+
+.modal-design-image {
+  width: 100%;
+
+  height: clamp(14rem, 30vh, 17rem);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.75rem;
+
+  background: #f5f7f9;
+
+  border: 1px solid #dce3eb;
+
+  border-radius: 0.4rem;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+.thumbImage {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* ================================
+   TEAM COLORS
+================================ */
+
+.team-colors {
+  margin-top: 0.75rem;
+
+  padding: 0.7rem;
+
+  border: 1px solid #dce3eb;
+
+  border-radius: 0.4rem;
+}
+
+.section-title {
+  display: block;
+
+  margin-bottom: 0.45rem;
+
+  color: #64748b;
+
+  font-size: 0.6rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+}
+
+.color-list {
+  display: flex;
+
+  gap: 0.5rem;
+}
+
+.color-item {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.color-box {
+  height: 1.5rem;
+
+  border: 1px solid #d7dee7;
+
+  border-radius: 0.2rem;
+
+  background: #071930;
+}
+
+.color-item:nth-child(2) .color-box {
+  background: #e3d4ad;
+}
+
+.color-item:nth-child(3) .color-box {
+  background: #000000;
+}
+
+.color-item:nth-child(4) .color-box {
+  background: #b0bcea;
+}
+
+.color-item span {
+  display: block;
+
+  margin-top: 0.25rem;
+
+  font-size: 0.55rem;
+
+  color: #64748b;
+}
+
+/* ================================
+   RIGHT SIDE
+================================ */
+
+.design-modal-right {
+  min-width: 0;
+
+  overflow: hidden;
+}
+
+/* ================================
+   TABS
+================================ */
+
+.modal-tabs {
+  display: flex;
+
+  width: 100%;
+
+  border-bottom: 1px solid #dce3eb;
+}
+
+.modal-tab {
+  flex: 1;
+
+  min-height: 2.8rem;
+
+  padding: 0.45rem 0.5rem;
+
+  border: none;
+
+  background: #ffffff;
+
+  color: #64748b;
+
+  font-size: 0.65rem;
+
+  line-height: 1.15;
+
+  cursor: pointer;
+}
+
+.modal-tab.active {
+  border: 1px solid #087dcc;
+
+  border-bottom-color: #ffffff;
+
+  color: #087dcc;
+
+  font-weight: 600;
+}
+
+/* ================================
+   DETAILS GRID
+================================ */
+
+.details-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 0.5rem;
+
+  margin-top: 0.65rem;
+}
+
+.detail-box {
+  min-height: 2rem;
+
+  padding: 0.2rem;
+
+  background: #f7f9fb;
+
+  border: 1px solid #dce3eb;
+
+  border-radius: 0.4rem;
+
+  box-sizing: border-box;
+}
+
+.detail-box span {
+  display: block;
+
+  margin-bottom: 0.45rem;
+
+  color: #64748b;
+
+  font-size: 0.55rem;
+
+  font-weight: 600;
+}
+
+.detail-box strong {
+  display: block;
+
+  color: #111827;
+
+  font-size: 0.7rem;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+/* ================================
+   CLASSIFICATION
+================================ */
+
+.classification-section {
+  margin-top: 0.7rem;
+}
+
+.tag-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.35rem;
+}
+
+.tag-list span {
+  padding: 0.3rem 0.5rem;
+
+  border-radius: 0.25rem;
+
+  background: #eef2f6;
+
+  color: #53657a;
+
+  font-size: 0.6rem;
+
+  font-weight: 600;
+}
+
+/* ================================
+   RELATED
+================================ */
+
+.related-section {
+  margin-top: 0.7rem;
+}
+
+.related-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  padding: 0.4rem;
+
+  border: 1px solid #dce3eb;
+
+  border-radius: 0.35rem;
+}
+
+.related-card img {
+  width: 2rem;
+  height: 2rem;
+
+  object-fit: contain;
+}
+
+.related-card strong {
+  display: block;
+
+  font-size: 0.65rem;
+}
+
+.related-card small {
+  display: block;
+
+  margin-top: 0.15rem;
+
+  font-size: 0.55rem;
+
+  color: #64748b;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.design-modal-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 3rem;
+
+  padding: 0.6rem 1rem;
+
+  border-top: 1px solid #dce3eb;
+
+  background: #f8fafc;
+
+  box-sizing: border-box;
+}
+
+.design-modal-footer p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.6rem;
+}
+
+.footer-badges {
+  display: flex;
+
+  gap: 0.4rem;
+}
+
+.footer-badges span {
+  padding: 0.25rem 0.45rem;
+
+  background: #eef2f6;
+
+  border-radius: 0.25rem;
+
+  color: #64748b;
+
+  font-size: 0.55rem;
+}
