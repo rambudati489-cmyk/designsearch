@@ -42,22 +42,72 @@ const UserManagement = () => {
   ]);
 
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
+  const [editingUserId, setEditingUserId] = useState<string | null>(null);
   const [userForm, setUserForm] = useState<UserFormState>(initialUserForm);
   const [userFormErrors, setUserFormErrors] = useState<
     Partial<Record<keyof UserFormState, string>>
   >({});
 
+  const openCreateModal = () => {
+    setEditingUserId(null);
+    setUserForm(initialUserForm);
+    setUserFormErrors({});
+    setIsUserModalOpen(true);
+  };
+
+  const openEditModal = (user: UserRecord) => {
+    setEditingUserId(user.id);
+    setUserForm(user);
+    setUserFormErrors({});
+    setIsUserModalOpen(true);
+  };
+
+  const closeUserModal = () => {
+    setIsUserModalOpen(false);
+    setEditingUserId(null);
+    setUserForm(initialUserForm);
+    setUserFormErrors({});
+  };
+
+  const handleDeleteUser = (userId: string) => {
+    setUsers((current) => current.filter((user) => user.id !== userId));
+  };
+
   const userTableColumns = [
     { title: "User Name", field: "name" },
     { title: "User ID", field: "id" },
     { title: "Password", field: "password" },
-  ];
+    {
+      title: "Action",
+      field: "action",
+      width: 160,
+      hozAlign: "center",
+      headerSort: false,
+      formatter: (_cell) => {
+        const rowData = _cell.getRow().getData() as UserRecord;
 
-  const closeUserModal = () => {
-    setIsUserModalOpen(false);
-    setUserForm(initialUserForm);
-    setUserFormErrors({});
-  };
+        const wrapper = document.createElement("div");
+        wrapper.className = "user-action-buttons";
+
+        const editButton = document.createElement("button");
+        editButton.type = "button";
+        editButton.className = "user-action-button edit";
+        editButton.textContent = "Edit";
+        editButton.onclick = () => openEditModal(rowData);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "user-action-button delete";
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = () => handleDeleteUser(rowData.id);
+
+        wrapper.appendChild(editButton);
+        wrapper.appendChild(deleteButton);
+
+        return wrapper;
+      },
+    },
+  ];
 
   const handleUserInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -71,7 +121,7 @@ const UserManagement = () => {
     }
   };
 
-  const handleCreateUser = () => {
+  const handleSaveUser = () => {
     const validationErrors = validateUserForm(userForm);
 
     if (Object.keys(validationErrors).length > 0) {
@@ -79,13 +129,22 @@ const UserManagement = () => {
       return;
     }
 
-    const newUser: UserRecord = {
+    const normalizedUser: UserRecord = {
       name: userForm.name.trim(),
       id: userForm.id.trim(),
       password: userForm.password.trim(),
     };
 
-    setUsers((current) => [newUser, ...current]);
+    if (editingUserId) {
+      setUsers((current) =>
+        current.map((user) =>
+          user.id === editingUserId ? { ...user, ...normalizedUser } : user,
+        ),
+      );
+    } else {
+      setUsers((current) => [normalizedUser, ...current]);
+    }
+
     closeUserModal();
   };
 
@@ -97,7 +156,7 @@ const UserManagement = () => {
           <button
             type="button"
             className="create-user-button"
-            onClick={() => setIsUserModalOpen(true)}
+            onClick={openCreateModal}
           >
             Create User
           </button>
@@ -113,7 +172,7 @@ const UserManagement = () => {
       <CommonModal isOpen={isUserModalOpen} onClose={closeUserModal}>
         <div className="user-modal-content">
           <div className="user-modal-header">
-            <h3>Create User</h3>
+            <h3>{editingUserId ? "Edit User" : "Create User"}</h3>
             <button
               type="button"
               className="modal-close-button"
@@ -178,9 +237,9 @@ const UserManagement = () => {
             <button
               type="button"
               className="user-modal-submit"
-              onClick={handleCreateUser}
+              onClick={handleSaveUser}
             >
-              Save User
+              {editingUserId ? "Update User" : "Save User"}
             </button>
           </div>
         </div>

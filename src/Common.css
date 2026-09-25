@@ -1059,6 +1059,32 @@ body,
   font-size: 0.8rem;
 }
 
+.user-action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.user-action-button {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user-action-button.edit {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.user-action-button.delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
 .user-modal-actions {
   display: flex;
   justify-content: flex-end;
